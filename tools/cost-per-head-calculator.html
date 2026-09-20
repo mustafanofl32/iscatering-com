@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost per head calculator | ISCatering</title>
+<meta name="description" content="Work out the cost per guest for an event from food, labour, rentals and overhead, and see the price needed for a target margin.">
+<link rel="canonical" href="https://iscatering.com/tools/cost-per-head-calculator">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F3EF">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101210">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ISCatering">
+<meta property="og:url" content="https://iscatering.com/tools/cost-per-head-calculator">
+<meta property="og:title" content="Cost per head calculator | ISCatering">
+<meta property="og:description" content="Work out the cost per guest for an event from food, labour, rentals and overhead, and see the price needed for a target margin.">
+<meta property="og:image" content="https://iscatering.com/assets/img/budget.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){try{var t=localStorage.getItem('isc-sale')==='off'&&document.documentElement.setAttribute('data-sale','off');localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mark-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/mark-64.png">
+<link rel="apple-touch-icon" href="/assets/brand/mark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<link rel="stylesheet" href="/assets/site.css?v=9b4eec65">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ISCatering","item":"https://iscatering.com/"},{"@type":"ListItem","position":2,"name":"Calculators","item":"https://iscatering.com/#tools"},{"@type":"ListItem","position":3,"name":"Cost per head calculator","item":"https://iscatering.com/tools/cost-per-head-calculator"}]},{"@type":"WebApplication","name":"Cost per head calculator","url":"https://iscatering.com/tools/cost-per-head-calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","description":"Work out the cost per guest for an event from food, labour, rentals and overhead, and see the price needed for a target margin.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="nav-shell">
+  <div class="sale-bar" id="sale-bar">
+  <a class="plain sale-bar__msg" href="/acquire"><b>ISCatering.com</b> is for sale &mdash; $1,195<span class="sale-bar__more">, or in monthly instalments</span></a>
+  <a class="plain sale-bar__go" href="/acquire">See the details</a>
+  <button class="sale-bar__x" type="button" aria-label="Dismiss">&times;</button>
+</div>
+  <header class="navbar glass">
+    <a class="logo" href="/"><img class="mark" src="/assets/brand/mark-512.png" alt="" width="28" height="28" decoding="async"><span>IS<span style="color:var(--accent)">Catering</span></span></a>
+    <nav class="nav" aria-label="Primary"><a href="/#tools" aria-current="page">Calculators</a><a href="/#guides">Guides</a><a href="/about">About</a><a class="nav--wide" href="/acquire">Buy this domain</a></nav>
+    <button class="theme-btn" id="theme" type="button" aria-label="Switch theme"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg></button>
+  </header>
+</div>
+<main id="main"><div class="wrap">
+
+<div class="stage stage--short">
+  <img src="/assets/img/budget.jpg" alt="Working out a budget" fetchpriority="high">
+  <p class="stage__cap glass mono">Working out a budget &middot; <a href="https://unsplash.com/photos/Vs6ip7fsld8" rel="noopener">Aaron Lefler</a></p>
+  <div class="stage__panel glass glass--strong">
+  <p class="crumbs mono"><a href="/">ISCatering</a> / <a href="/#tools">Calculators</a></p>
+  <h1>Cost per head calculator</h1>
+  <p class="lede">Work out the cost per guest from food, labour, rentals and overhead, and see the margin.</p>
+</div>
+</div>
+
+<div class="calc">
+  <form class="form glass" id="form" novalidate>
+    <h2 style="font-size:1.25rem;margin-bottom:16px">Your event</h2>
+    <div class="field">
+  <label for="guests">Guests</label>
+  <input id="guests" type="number" inputmode="numeric" value="100" min="1" max="5000" step="1">
+</div>
+    <div class="field">
+  <label for="food">Food cost per guest<span class="hint">Raw ingredients only</span></label>
+  <input id="food" type="number" inputmode="numeric" value="14" min="0" max="10000" step="0.5">
+</div>
+    <div class="field">
+  <label for="labour">Total labour cost<span class="hint">Staff hours x rate, all roles</span></label>
+  <input id="labour" type="number" inputmode="numeric" value="1600" min="0" max="1000000" step="10">
+</div>
+    <div class="field">
+  <label for="rentals">Rentals and equipment<span class="hint">Tables, linen, china, chafers</span></label>
+  <input id="rentals" type="number" inputmode="numeric" value="900" min="0" max="1000000" step="10">
+</div>
+    <div class="field">
+  <label for="other">Transport, fuel, disposables</label>
+  <input id="other" type="number" inputmode="numeric" value="250" min="0" max="1000000" step="10">
+</div>
+    <div class="field">
+  <label for="overhead">Overhead<span class="hint">Percent added for insurance, kitchen, admin</span></label>
+  <input id="overhead" type="number" inputmode="numeric" value="15" min="0" max="100" step="1">
+</div>
+    <div class="field">
+  <label for="price">Price charged per guest<span class="hint">Leave at 0 to see a suggested price</span></label>
+  <input id="price" type="number" inputmode="numeric" value="0" min="0" max="100000" step="0.5">
+</div>
+    <div class="field">
+  <label for="target">Target margin<span class="hint">Percent</span></label>
+  <input id="target" type="number" inputmode="numeric" value="25" min="0" max="90" step="1">
+</div>
+  </form>
+  <div>
+    <div class="out glass">
+      <h2>Estimate</h2>
+      <p class="muted" style="max-width:38em">Enter your own numbers in any currency. The calculator keeps the arithmetic honest: it separates direct costs from overhead and shows the margin the price actually produces.</p>
+      <div class="big" id="big"></div>
+      <ul class="rows" id="rows"></ul>
+      <div class="assume">
+        <strong>What this assumes</strong>
+        <ul><li>Margin is calculated on revenue, not as a markup on cost.</li><li>Overhead is applied as a percentage of direct costs.</li><li>Taxes, service charges and payment fees are not included.</li><li>The food cost share is shown because it is the number most often used as a sanity check.</li></ul>
+        <p style="margin-top:10px">These are estimating rules of thumb, not guarantees. Check the numbers against your own menu, your own staff and your own suppliers.</p>
+      </div>
+    </div>
+    <section style="margin-top:40px">
+      <div class="sec-head"><h2>Related reading</h2></div>
+      <div class="cards">
+        <a class="card glass" href="/guides/service-styles">
+  <img src="/assets/img/service-styles-sm.jpg" alt="" loading="lazy">
+  <div class="card__b"><em>Guide</em><b>Service styles compared</b><span>Buffet, plated, family style, stations and passed canapes, and what each one does to your staffing, your timing and your food quantities.</span></div>
+</a>
+        <a class="card glass" href="/guides/portion-planning">
+  <img src="/assets/img/portions-sm.jpg" alt="" loading="lazy">
+  <div class="card__b"><em>Guide</em><b>Portion planning</b><span>The per-guest figures caterers work from, what changes them, and where they go wrong.</span></div>
+</a>
+        <a class="card glass" href="/guides/staffing-guide">
+  <img src="/assets/img/staffing-sm.jpg" alt="" loading="lazy">
+  <div class="card__b"><em>Guide</em><b>Staffing an event</b><span>How many servers, bartenders and kitchen staff an event needs, and the hours nobody counts.</span></div>
+</a>
+      </div>
+    </section>
+    <p class="revised">Page revised 18 September 2026.</p>
+  </div>
+</div>
+
+</div></main>
+<footer class="foot"><div class="foot__in glass">
+  <div class="foot__row">
+    <span><strong style="color:var(--ink)">ISCatering.com</strong> <span class="mono">&middot; catering planning reference &middot; revised 18 September 2026</span></span>
+    <nav aria-label="Footer"><a href="/#tools">Calculators</a><a href="/#guides">Guides</a><a href="/about">About</a><a href="/about#photographs">Photographs</a><a href="/acquire">Buy this domain</a></nav>
+  </div>
+  <p class="dis">Planning figures on this site are conventional industry rules of thumb for estimating, not guarantees, quotes or professional advice. Food safety, alcohol licensing, allergen labelling and employment rules differ by country and venue; local requirements always take priority. This site does not sell catering and is not a caterer.</p>
+</div></footer>
+<script>
+(function(){
+  var b=document.getElementById('theme'); if(!b) return;
+  var root=document.documentElement, mq=window.matchMedia('(prefers-color-scheme: dark)');
+  function current(){ return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+  function label(){ var d=current()==='dark'; b.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme'); b.setAttribute('aria-pressed', d ? 'true' : 'false'); }
+  b.addEventListener('click', function(){
+    var next=current()==='dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try{ localStorage.setItem('isc-theme', next); }catch(e){}
+    label();
+  });
+  if(mq.addEventListener) mq.addEventListener('change', label);
+  label();
+})();
+</script>
+<script>(function(){var b=document.getElementById('sale-bar');if(!b)return;
+b.querySelector('.sale-bar__x').addEventListener('click',function(){
+try{localStorage.setItem('isc-sale','off')}catch(e){}document.documentElement.setAttribute('data-sale','off')})})()</script>
+<script type="module">
+import { animate, createTimeline, stagger, utils, onScroll } from 'https://cdn.jsdelivr.net/npm/animejs@4/+esm';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const qa = (s, r = document) => Array.from(r.querySelectorAll(s));
+
+/* ---------- nav: measure height, slide the pill under the current link ---------- */
+const navbar = document.querySelector('.nav-shell') || document.querySelector('.navbar');
+function setNav(){ if (navbar) document.documentElement.style.setProperty('--nav-h', Math.round(navbar.getBoundingClientRect().height + 14) + 'px'); }
+setNav(); addEventListener('resize', setNav);
+if (window.ResizeObserver && navbar) new ResizeObserver(setNav).observe(navbar);
+
+const pill = document.querySelector('.nav__pill');
+function movePill(el){
+  if (!pill || !el || innerWidth < 821) return;
+  const p = el.parentElement.getBoundingClientRect(), r = el.getBoundingClientRect();
+  animate(pill, { left: r.left - p.left, width: r.width, opacity: 1, duration: reduce ? 0 : 420, ease: 'out(3)' });
+}
+const currentLink = document.querySelector('.nav a[aria-current]');
+if (currentLink) requestAnimationFrame(() => movePill(currentLink));
+qa('.nav a').forEach(a => a.addEventListener('mouseenter', () => movePill(a)));
+const nav = document.querySelector('.nav');
+if (nav) nav.addEventListener('mouseleave', () => movePill(currentLink));
+
+if (reduce) { /* everything below is decoration only */ } else {
+
+/* ---------- split a heading into words for staggered entrances ---------- */
+function splitWords(el){
+  if (el.dataset.split) return qa('.w > i', el);
+  const words = el.textContent.trim().split(/\s+/);
+  el.textContent = '';
+  words.forEach((w, i) => {
+    const span = document.createElement('span');
+    span.className = 'w';
+    span.style.cssText = 'display:inline-block;overflow:hidden;vertical-align:top';
+    const inner = document.createElement('i');
+    inner.style.cssText = 'display:inline-block;font-style:inherit';
+    inner.textContent = w;
+    span.appendChild(inner);
+    el.appendChild(span);
+    if (i < words.length - 1) el.appendChild(document.createTextNode(' '));
+  });
+  el.dataset.split = '1';
+  return qa('.w > i', el);
+}
+
+/* ---------- entrance timeline for whatever is above the fold ---------- */
+const heroHeading = document.querySelector('[data-hero] h1');
+const tl = createTimeline({ defaults: { ease: 'out(3)' } });
+if (heroHeading){
+  const parts = splitWords(heroHeading);
+  utils.set(parts, { y: '110%' });
+  tl.add(parts, { y: ['110%', '0%'], duration: 900, delay: stagger(60) }, 0);
+}
+qa('[data-hero] .kicker, [data-hero] .lede, [data-hero] .cta-row, [data-hero] form, [data-hero] .crumbs').forEach((el, i) => {
+  utils.set(el, { opacity: 0, y: 18 });
+  tl.add(el, { opacity: [0, 1], y: [18, 0], duration: 700 }, 220 + i * 90);
+});
+
+/* ---------- reveal on scroll ---------- */
+const revealables = qa('[data-reveal]');
+revealables.forEach(el => {
+  const kids = el.dataset.reveal === 'children' ? Array.from(el.children) : [el];
+  utils.set(kids, { opacity: 0, y: 26 });
+  el._kids = kids;
+});
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    animate(e.target._kids, { opacity: [0, 1], y: [26, 0], duration: 760, delay: stagger(70), ease: 'out(3)' });
+    io.unobserve(e.target);
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+revealables.forEach(el => io.observe(el));
+
+/* ---------- counters ---------- */
+qa('[data-count]').forEach(el => {
+  const target = Number(el.dataset.count);
+  const o = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const obj = { n: 0 };
+      animate(obj, { n: target, duration: 1500, ease: 'out(4)', onUpdate: () => { el.textContent = Math.round(obj.n).toLocaleString(); } });
+      o.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  o.observe(el);
+});
+
+/* ---------- marquee ---------- */
+qa('.marquee__row').forEach(row => {
+  row.innerHTML += row.innerHTML;
+  animate(row, { x: ['0%', '-50%'], duration: 42000, ease: 'linear', loop: true });
+});
+
+/* ---------- second clip: only load it when its section is close ---------- */
+const spot = document.querySelector('[data-clip]');
+if (spot){
+  const saveData = (navigator.connection && navigator.connection.saveData) || false;
+  const o = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      o.unobserve(spot);
+      if (saveData) return;
+      const v = document.createElement('video');
+      v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      v.setAttribute('playsinline',''); v.setAttribute('aria-hidden','true');
+      v.poster = spot.dataset.poster;
+      v.addEventListener('loadeddata', () => {
+        const img = spot.querySelector('img'); if (img) img.remove();
+        spot.prepend(v); const p = v.play(); if (p && p.catch) p.catch(() => {});
+        animate(v, { opacity: [0, 1], duration: 800 });
+      });
+      v.src = spot.dataset.clip;
+    });
+  }, { rootMargin: '300px' });
+  o.observe(spot);
+}
+
+/* ---------- table rows fade in as you scroll the index ---------- */
+const rows = qa('table.idx tbody tr').slice(0, 40);
+if (rows.length){
+  utils.set(rows, { opacity: 0 });
+  const o = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      animate(e.target, { opacity: [0, 1], duration: 420, ease: 'out(2)' });
+      o.unobserve(e.target);
+    });
+  }, { threshold: 0.05 });
+  rows.forEach(r => o.observe(r));
+  setTimeout(() => utils.set(qa('table.idx tbody tr').slice(40), { opacity: 1 }), 0);
+}
+
+} /* end !reduce */
+
+/* ---------- cinematic scenes: scroll scrubs the frames ---------- */
+(function scenes(){
+  const all = qa('.scene');
+  if (!all.length) return;
+  const saveData = (navigator.connection && navigator.connection.saveData) || false;
+  const conn = navigator.connection;
+  const slow = conn && /2g/.test(conn.effectiveType || '');
+  const phoneMq = matchMedia('(max-width: 820px)');
+
+  all.forEach((scene, sceneIndex) => {
+    const key = scene.dataset.scene;
+    const canvas = scene.querySelector('.scene__canvas');
+    const steps = qa('.scene__step', scene);
+    let current = 0;
+
+    function showStep(p){
+      const i = Math.min(steps.length - 1, Math.floor(p * steps.length * 0.999));
+      if (i === current) return;
+      current = i;
+      steps.forEach((s, n) => { if (n === i) s.setAttribute('data-active',''); else s.removeAttribute('data-active'); });
+      if (!reduce) animate(Array.from(steps[i].children), { opacity: [0, 1], y: [24, 0], duration: 640, delay: stagger(70), ease: 'out(3)' });
+    }
+
+    if (reduce) return;                       // reduced motion: poster only, all steps visible via CSS
+
+    // captions always follow the scroll, even when frames are not loaded
+    const cap = { p: 0 };
+    animate(cap, { p: [0, 1], ease: 'linear',
+      autoplay: onScroll({ target: scene, enter: 'top top', leave: 'bottom bottom', sync: true }),
+      onUpdate: () => showStep(cap.p) });
+
+    if (saveData || slow) return;             // poster only
+
+    const phone = phoneMq.matches;
+    const total = Number(phone ? scene.dataset.m : scene.dataset.d);
+    const suffix = phone ? 'm3' : 'd2';   // bumped when the phone crop changed, so old files in a cache are never reused
+    const ctx = canvas.getContext('2d', { alpha: false });
+    const imgs = new Array(total);
+    let drawn = -1, target = 0, shown = 0, started = false, raf = 0;
+
+    function size(){
+      let w = phone ? 800 : 1600, h = phone ? 1000 : 900;
+      for (let k = 0; k < total; k++){ const i = imgs[k]; if (i && i.complete && i.naturalWidth){ w = i.naturalWidth; h = i.naturalHeight; break; } }
+      if (canvas.width !== w || canvas.height !== h){ canvas.width = w; canvas.height = h; }
+      drawn = -1;
+    }
+    function ready(k){ const i = imgs[k]; return (i && i.complete && i.naturalWidth) ? i : null; }
+    function paint(img, alpha){
+      if (alpha < 1) ctx.globalAlpha = alpha;
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = 1;
+    }
+    function draw(f){
+      const lo = Math.max(0, Math.min(total - 1, Math.floor(f)));
+      const hi = Math.min(total - 1, lo + 1);
+      const frac = Math.min(1, Math.max(0, f - lo));
+      const a = ready(lo), b = ready(hi);
+      const base = a || b;
+      if (!base) return;
+      const key = Math.round(f * 24);            // redraw only when the blend actually moves
+      if (key === drawn) return;
+      drawn = key;
+      paint(base, 1);
+      if (a && b && b !== a && frac > 0.03) paint(b, frac);
+      if (!canvas.hasAttribute('data-live')) canvas.setAttribute('data-live', '');
+    }
+    function load(k, cb){
+      if (imgs[k]) return;
+      const im = new Image();
+      im.decoding = 'async';
+      im.src = '/assets/scenes/' + key + '-' + suffix + '-' + String(k + 1).padStart(3, '0') + '.webp';
+      imgs[k] = im;
+      im.onload = () => cb && cb();
+    }
+    function start(){
+      if (started) return; started = true;
+      size();
+      addEventListener('resize', () => { draw(shown); });
+      const order = [];
+      for (let k = 0; k < total; k += 2) order.push(k);
+      for (let k = 1; k < total; k += 2) order.push(k);
+      let oi = 0;
+      for (; oi < Math.min(8, order.length); oi++) load(order[oi], oi === 0 ? () => { size(); draw(0); } : null);
+      (function rest(){ if (oi >= order.length) return; load(order[oi++], rest); if (oi % 4 === 0) setTimeout(rest, 0); })();
+
+      // the scroll sets a target frame; a small lerp loop eases towards it so scrubbing feels fluid
+      const st = { f: 0 };
+      animate(st, { f: [0, total - 1], ease: 'linear',
+        autoplay: onScroll({ target: scene, enter: 'top top', leave: 'bottom bottom', sync: true }),
+        onUpdate: () => { target = st.f; if (!raf) raf = requestAnimationFrame(tick); } });
+      function tick(){
+        raf = 0;
+        shown += (target - shown) * 0.09;
+        if (Math.abs(target - shown) < 0.004) shown = target;
+        draw(shown);
+        if (shown !== target) raf = requestAnimationFrame(tick);
+      }
+    }
+
+    if (sceneIndex === 0) start();
+    else {
+      const o = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting){ o.disconnect(); start(); } }), { rootMargin: '150% 0px' });
+      o.observe(scene);
+    }
+  });
+})();
+
+let wheelBusy = false;
+
+(function wheeling(){
+  if (reduce) return;
+  if (matchMedia('(pointer: coarse)').matches) return;      // phones already glide
+  let target = 0, raf = 0;
+
+  function limit(){ return Math.max(0, document.documentElement.scrollHeight - innerHeight); }
+  function stop(){ wheelBusy = false; if (raf) cancelAnimationFrame(raf); raf = 0; }
+
+  function step(){
+    raf = 0;
+    const d = target - scrollY;
+    if (Math.abs(d) < 0.6){ scrollTo(0, Math.round(target)); wheelBusy = false; return; }
+    const before = scrollY;
+    scrollTo(0, Math.round(before + d * 0.18));
+    if (scrollY === before){ wheelBusy = false; return; }    // hit the end of the page
+    raf = requestAnimationFrame(step);
+  }
+
+  addEventListener('wheel', function(e){
+    if (e.ctrlKey || e.defaultPrevented) return;             // leave pinch zoom alone
+    for (let n = e.target; n && n !== document.body; n = n.parentElement){
+      if (n.nodeType !== 1) continue;                        // getComputedStyle only takes elements
+      const o = getComputedStyle(n).overflowY;               // let inner scrollers have it
+      if ((o === 'auto' || o === 'scroll') && n.scrollHeight > n.clientHeight + 2) return;
+    }
+    e.preventDefault();
+    if (!wheelBusy){ target = scrollY; wheelBusy = true; }
+    target = Math.max(0, Math.min(limit(), target + e.deltaY * (e.deltaMode === 1 ? 16 : 1)));
+    if (!raf) raf = requestAnimationFrame(step);
+  }, { passive: false });
+
+  ['keydown', 'pointerdown', 'touchstart'].forEach(function(n){ addEventListener(n, stop, { passive: true }); });
+})();
+
+/* ---------- settling ----------
+   A scene is a shot that runs over three screens of scrolling, so letting the page stop wherever
+   the flick happens to end leaves the film halfway between two compositions and reads as rushed.
+   When a scroll ends inside a scene, ease onto the nearest beat of that shot instead. Beats are
+   the caption changes and their midpoints, so about two thirds of a screen apart. Blocks of
+   ordinary content are left alone: the index table has to scroll freely. */
+(function settle(){
+  if (reduce) return;
+  const scenes = qa('.scene');
+  if (!scenes.length) return;
+  let busy = 0, timer = 0, raf = 0;
+
+  // the reader always wins: any real input abandons the glide on the spot
+  function release(){ if (raf) cancelAnimationFrame(raf); raf = 0; busy = 0; }
+  ['wheel', 'touchstart', 'pointerdown', 'keydown'].forEach(function(e){
+    addEventListener(e, release, { passive: true });
+  });
+
+  function glide(to){
+    const from = scrollY, d = to - from;
+    if (Math.abs(d) < 4) return;
+    const dur = Math.min(1100, Math.max(460, Math.abs(d) * 1.9));
+    const t0 = performance.now();
+    busy = 1;
+    raf = requestAnimationFrame(function step(now){
+      if (!busy) return;
+      const p = Math.min(1, (now - t0) / dur);
+      const e = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;   // easeInOutCubic
+      scrollTo(0, Math.round(from + d * e));
+      if (p < 1) raf = requestAnimationFrame(step); else release();
+    });
+  }
+
+  function beats(scene){
+    const span = scene.offsetHeight - innerHeight;
+    if (span < 120) return null;                       // scene is not taller than the screen: nothing to settle on
+    const n = Math.max(4, (qa('.scene__step', scene).length || 2) * 4);
+    return { top: scene.offsetTop, span: span, n: n, gap: span / n };
+  }
+  function run(){
+    if (busy || wheelBusy) return;
+    const y = scrollY;
+    for (let i = 0; i < scenes.length; i++){
+      const b = beats(scenes[i]);
+      if (!b || y < b.top - 2 || y > b.top + b.span + 2) continue;
+      const k = Math.round((y - b.top) / b.gap);
+      const to = Math.round(b.top + Math.min(b.n, Math.max(0, k)) * b.gap);
+      if (Math.abs(to - y) < 10) return;
+      glide(to);
+      return;
+    }
+  }
+  if ('onscrollend' in window) addEventListener('scrollend', run, { passive: true });
+  else addEventListener('scroll', function(){ clearTimeout(timer); timer = setTimeout(run, 180); }, { passive: true });
+})();
+
+</script>
+<script>(function(){
+  var ids=['guests','food','labour','rentals','other','overhead','price','target'], f=ids.map(function(i){return document.getElementById(i)});
+  function money(n){ return (Math.round(n*100)/100).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  function calc(){
+    var g=+f[0].value||1, food=+f[1].value||0, lab=+f[2].value||0, rent=+f[3].value||0, oth=+f[4].value||0,
+        ovh=(+f[5].value||0)/100, price=+f[6].value||0, target=(+f[7].value||0)/100;
+    var direct=food*g+lab+rent+oth;
+    var total=direct*(1+ovh);
+    var perHead=total/g;
+    var suggested= target<1 ? perHead/(1-target) : perHead;
+    var used= price>0 ? price : suggested;
+    var revenue=used*g, profit=revenue-total, margin=revenue>0 ? profit/revenue*100 : 0;
+    document.getElementById('big').innerHTML='<div><b>'+money(perHead)+'</b><span>cost per guest</span></div>'+
+      '<div><b>'+money(suggested)+'</b><span>price for '+Math.round(target*100)+'% margin</span></div>'+
+      '<div><b>'+margin.toFixed(1)+'%</b><span>margin at '+money(used)+'</span></div>';
+    var rows=[
+      ['Food', money(food*g), money(food)+' per guest'],
+      ['Labour', money(lab), money(lab/g)+' per guest'],
+      ['Rentals', money(rent), money(rent/g)+' per guest'],
+      ['Transport and disposables', money(oth), money(oth/g)+' per guest'],
+      ['Direct cost', money(direct), 'Before overhead'],
+      ['Overhead', money(total-direct), Math.round(ovh*100)+'% of direct cost'],
+      ['Total cost', money(total), money(perHead)+' per guest'],
+      ['Revenue at '+money(used)+' per guest', money(revenue), price>0?'Your price':'Suggested price'],
+      ['Profit', money(profit), margin.toFixed(1)+'% margin'],
+      ['Food cost as share of price', (used>0?(food/used*100).toFixed(1):'0')+'%', 'Often kept near 25 to 35 percent']
+    ];
+    document.getElementById('rows').innerHTML=rows.map(function(r){
+      return '<li><span>'+r[0]+'<small>'+r[2]+'</small></span><b>'+r[1]+'</b></li>'}).join('');
+  }
+  f.forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)}); calc();
+})();</script>
+</body>
+</html>
