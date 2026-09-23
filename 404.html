@@ -7,8 +7,7 @@
 <meta name="description" content="That page is not here.">
 <link rel="canonical" href="https://iscatering.com/404"><meta name="robots" content="noindex, follow">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F3EF">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101210">
+<meta name="theme-color" content="#F4F3EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ISCatering">
 <meta property="og:url" content="https://iscatering.com/404">
@@ -16,14 +15,14 @@
 <meta property="og:description" content="That page is not here.">
 <meta property="og:image" content="https://iscatering.com/assets/img/home.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script>(function(){try{var t=localStorage.getItem('isc-sale')==='off'&&document.documentElement.setAttribute('data-sale','off');localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mark-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/mark-64.png">
 <link rel="apple-touch-icon" href="/assets/brand/mark-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=9b4eec65">
+<link rel="stylesheet" href="/assets/site.css?v=43a1b2a6">
 
 </head>
 <body>
@@ -61,16 +60,16 @@
 <script>
 (function(){
   var b=document.getElementById('theme'); if(!b) return;
-  var root=document.documentElement, mq=window.matchMedia('(prefers-color-scheme: dark)');
-  function current(){ return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+  var root=document.documentElement, meta=document.querySelector('meta[name="theme-color"]');
+  function current(){ return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }   // light unless the visitor chose dark
   function label(){ var d=current()==='dark'; b.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme'); b.setAttribute('aria-pressed', d ? 'true' : 'false'); }
   b.addEventListener('click', function(){
     var next=current()==='dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try{ localStorage.setItem('isc-theme', next); }catch(e){}
+    if(meta) meta.setAttribute('content', next==='dark' ? '#101210' : '#F4F3EF');
     label();
   });
-  if(mq.addEventListener) mq.addEventListener('change', label);
   label();
 })();
 </script>

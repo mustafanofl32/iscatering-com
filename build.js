@@ -54,17 +54,6 @@ const CSS = `:root{
   --r-sm:10px; --r-md:16px; --r-lg:24px; --r-pill:999px;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  color-scheme:dark;
-  --bg:#101210; --surface:#181A18; --surface-2:#1F221F;
-  --ink:#E9EAE6; --ink-2:#AFB4AD; --ink-3:#8C918A;
-  --line:rgba(233,234,230,.10); --line-strong:rgba(233,234,230,.22);
-  --accent:#86C9A3; --accent-ink:#0B1710; --accent-soft:rgba(134,201,163,.12);
-  --glass:rgba(26,30,27,.52); --glass-strong:rgba(26,30,27,.72);
-  --glass-edge:rgba(255,255,255,.14); --glass-line:rgba(255,255,255,.08);
-  --glass-shadow:0 1px 1px rgba(0,0,0,.3),0 14px 40px -10px rgba(0,0,0,.6);
-  --amb-1:rgba(50,120,85,.22); --amb-2:rgba(150,110,60,.20); --amb-3:rgba(60,90,140,.18);
-}}
 :root[data-theme="dark"]{
   color-scheme:dark;
   --bg:#101210; --surface:#181A18; --surface-2:#1F221F;
@@ -104,7 +93,6 @@ p{margin:0 0 1em}
 .glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
   background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,0) 38%)}
 :root[data-theme="dark"] .glass::after{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .glass::after{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,0) 38%)}}
 .glass--strong{background:var(--glass-strong)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.glass{background:var(--glass-strong)}}
 @media (prefers-reduced-transparency:reduce){.glass{background:var(--surface);-webkit-backdrop-filter:none;backdrop-filter:none}}
@@ -152,7 +140,6 @@ p{margin:0 0 1em}
 .theme-btn .i-sun{display:none}
 :root[data-theme="dark"] .theme-btn .i-sun{display:block}
 :root[data-theme="dark"] .theme-btn .i-moon{display:none}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-btn .i-sun{display:block}:root:not([data-theme="light"]) .theme-btn .i-moon{display:none}}
 @media (max-width:640px){
   .navbar{flex-wrap:nowrap;border-radius:var(--r-pill);padding:5px 5px 5px 12px;gap:4px}
   .nav{order:0;width:auto;justify-content:flex-end;margin:0;gap:0}
@@ -260,20 +247,20 @@ const ICON = {
   sun: `<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>`,
   moon: `<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>`
 };
-const THEME_HEAD = `<script>(function(){try{var t=localStorage.getItem('isc-sale')==='off'&&document.documentElement.setAttribute('data-sale','off');localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>`;
+const THEME_HEAD = `<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>`;
 const THEME_BODY = `<script>
 (function(){
   var b=document.getElementById('theme'); if(!b) return;
-  var root=document.documentElement, mq=window.matchMedia('(prefers-color-scheme: dark)');
-  function current(){ return root.getAttribute('data-theme') || (mq.matches ? 'dark' : 'light'); }
+  var root=document.documentElement, meta=document.querySelector('meta[name="theme-color"]');
+  function current(){ return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }   // light unless the visitor chose dark
   function label(){ var d=current()==='dark'; b.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme'); b.setAttribute('aria-pressed', d ? 'true' : 'false'); }
   b.addEventListener('click', function(){
     var next=current()==='dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
     try{ localStorage.setItem('isc-theme', next); }catch(e){}
+    if(meta) meta.setAttribute('content', next==='dark' ? '#101210' : '#F4F3EF');
     label();
   });
-  if(mq.addEventListener) mq.addEventListener('change', label);
   label();
 })();
 </script>`;
@@ -290,8 +277,7 @@ function shell({title, desc, canonical, body, jsonld, current, ogImage, script, 
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${canonical}">${noindex ? '<meta name="robots" content="noindex, follow">' : ""}
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F4F3EF">
-<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#101210">
+<meta name="theme-color" content="#F4F3EF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ISCatering">
 <meta property="og:url" content="${canonical}">
@@ -777,7 +763,7 @@ ${stage(photo("acquire"), `
     <h2>What comes with it</h2>
     <ul>
       <li><strong>The name.</strong> iscatering.com, registered and clean — no trade mark dispute, no penalty history, nothing to unwind.</li>
-      <li><strong>The site on it.</strong> ${tools.length} working calculators and ${guides.length} guides, and the code that builds them. Yours if you want it, deleted if you do not.</li>
+      <li><strong>The site on it.</strong> ${tools.length} working calculators and ${guides.length} guides, and the code that builds them &mdash; all of it public at <a href="https://github.com/mustafanofl32/iscatering-com" rel="noopener">github.com/mustafanofl32/iscatering-com</a>, so you can read it before you buy. Yours if you want it, deleted if you do not.</li>
       <li><strong>A head start with Google.</strong> Indexed, a submitted sitemap, clean URLs and structured data already in place. A new domain starts from nothing; this one does not.</li>
     </ul>
 
