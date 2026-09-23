@@ -15,14 +15,14 @@
 <meta property="og:description" content="Collecting requirements, planning for them, and the difference between a preference and a medical risk. Covers Collect them early, Preference, intolerance…">
 <meta property="og:image" content="https://iscatering.com/assets/img/dietary.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
+<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme-v2');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/mark-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/brand/mark-64.png">
 <link rel="apple-touch-icon" href="/assets/brand/mark-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=43a1b2a6">
+<link rel="stylesheet" href="/assets/site.css?v=20fe5057">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ISCatering","item":"https://iscatering.com/"},{"@type":"ListItem","position":2,"name":"Guides","item":"https://iscatering.com/#guides"},{"@type":"ListItem","position":3,"name":"Dietary requirements and allergens","item":"https://iscatering.com/guides/dietary-requirements"}]},{"@type":"Article","headline":"Dietary requirements and allergens","description":"Collecting requirements, planning for them, and the difference between a preference and a medical risk. Covers Collect them early, Preference, intolerance…","image":"https://iscatering.com/assets/img/dietary.jpg","dateModified":"2026-09-18","mainEntityOfPage":"https://iscatering.com/guides/dietary-requirements","isPartOf":{"@type":"WebSite","name":"ISCatering","url":"https://iscatering.com/"}}]}</script>
 </head>
 <body>
@@ -110,7 +110,7 @@
   b.addEventListener('click', function(){
     var next=current()==='dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try{ localStorage.setItem('isc-theme', next); }catch(e){}
+    try{ localStorage.setItem('isc-theme-v2', next); }catch(e){}
     if(meta) meta.setAttribute('content', next==='dark' ? '#101210' : '#F4F3EF');
     label();
   });
@@ -291,7 +291,7 @@ if (rows.length){
 
     const phone = phoneMq.matches;
     const total = Number(phone ? scene.dataset.m : scene.dataset.d);
-    const suffix = phone ? 'm3' : 'd2';   // bumped when the phone crop changed, so old files in a cache are never reused
+    const suffix = phone ? 'm4' : 'd3';   // bumped when the phone crop changed, so old files in a cache are never reused
     const ctx = canvas.getContext('2d', { alpha: false });
     const imgs = new Array(total);
     let drawn = -1, target = 0, shown = 0, started = false, raf = 0;

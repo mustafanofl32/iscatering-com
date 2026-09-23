@@ -3,15 +3,19 @@
    Scrolling through a scene scrubs its frames; ordinary content lives in solid blocks between
    scenes, so the film is never hidden behind a table and never dimmed to make text readable.
 
-   Desktop: 48 WebP frames per scene at 1600x900 (about 2 MB a scene), loaded only when the
-   scene is near. Phones: the video sits in a crisp 4:5 stage with the copy below it, fed by
-   30 frames at 800x1000 cropped from the centre of the source, so it is not a stretched
-   landscape image. Data saver, 2g and reduced motion get the poster frame and no scrubbing. */
+   The source clips hold each picture for five frames (about 6 real frames a second), which is
+   what made scrubbing stutter: freeze, jump, freeze. The frames are now cut from a
+   motion-interpolated master (ffmpeg minterpolate, 6 -> 48 fps) and picked at equal steps of
+   on-screen motion, so every scroll step moves the picture by the same amount.
+
+   Desktop: 144 WebP frames per scene at 1600x900, loaded only when the scene is near. Phones:
+   the video sits in a crisp stage with the copy below it, fed by 108 frames at 940x1015 cropped
+   from the centre of the source. Data saver, 2g and reduced motion get the poster frame only. */
 
 const SCENES = {
-  table: { d: 96, m: 72, name: "The table", alt: "A camera descending a banquet table from glasses and flowers to the cutlery laid on the cloth" },
-  pass:  { d: 96, m: 72, name: "The pass",  alt: "A camera rising through a catering kitchen from plated canapes to a rack of clean glassware" },
-  pour:  { d: 96, m: 72, name: "The drinks", alt: "A camera descending a drinks station from tiered empty glasses to one filled glass on the cloth" }
+  table: { d: 144, m: 108, name: "The table", alt: "A camera descending a banquet table from glasses and flowers to the cutlery laid on the cloth" },
+  pass:  { d: 144, m: 108, name: "The pass",  alt: "A camera rising through a catering kitchen from plated canapes to a rack of clean glassware" },
+  pour:  { d: 144, m: 108, name: "The drinks", alt: "A camera descending a drinks station from tiered empty glasses to one filled glass on the cloth" }
 };
 
 const sceneMarkup = ({ key, index, tall, steps, hero }) => {
@@ -20,7 +24,7 @@ const sceneMarkup = ({ key, index, tall, steps, hero }) => {
 <section class="scene${tall ? " scene--tall" : ""}" id="scene-${key}" data-scene="${key}" data-d="${s.d}" data-m="${s.m}"${hero ? " data-hero" : ""}>
   <div class="scene__pin">
     <div class="scene__stage">
-      <img class="scene__still" src="/assets/scenes/${key}-poster2.webp" alt="${s.alt}"${hero ? ' fetchpriority="high"' : ' loading="lazy"'}>
+      <img class="scene__still" src="/assets/scenes/${key}-poster3.webp" alt="${s.alt}"${hero ? ' fetchpriority="high"' : ' loading="lazy"'}>
       <canvas class="scene__canvas" aria-hidden="true"></canvas>
       <div class="scene__shade" aria-hidden="true"></div>
     </div>
@@ -37,8 +41,8 @@ const REEL_CSS = `
    index table between the scenes. */
 
 /* ---------- cinematic scenes ---------- */
-.scene{position:relative;height:300vh;background:#0B1712;margin-top:0}
-.scene--tall{height:360vh}
+.scene{position:relative;height:340vh;background:#0B1712;margin-top:0}
+.scene--tall{height:400vh}
 .scene__pin{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;color:#F7F4EE;isolation:isolate}
 .scene__stage{position:absolute;inset:0;z-index:0;background:#0B1712}
 .scene__still,.scene__canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
@@ -79,8 +83,8 @@ const REEL_CSS = `
 
 /* phones: the film gets a crisp framed stage, the words sit under it, nothing overlaps */
 @media (max-width:820px){
-  .scene{height:250vh}
-  .scene--tall{height:290vh}
+  .scene{height:280vh}
+  .scene--tall{height:320vh}
   /* the film runs to the edges of the phone: no padding, no rounded box, nothing
      boxing it in. The nav floats over its top, which is what the shade is for. */
   .scene__pin{display:flex;flex-direction:column;padding:0;gap:0;background:#0B1712}
@@ -144,7 +148,7 @@ const REEL_SCRIPT = `
 
     const phone = phoneMq.matches;
     const total = Number(phone ? scene.dataset.m : scene.dataset.d);
-    const suffix = phone ? 'm3' : 'd2';   // bumped when the phone crop changed, so old files in a cache are never reused
+    const suffix = phone ? 'm4' : 'd3';   // bumped when the phone crop changed, so old files in a cache are never reused
     const ctx = canvas.getContext('2d', { alpha: false });
     const imgs = new Array(total);
     let drawn = -1, target = 0, shown = 0, started = false, raf = 0;

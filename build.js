@@ -247,7 +247,7 @@ const ICON = {
   sun: `<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>`,
   moon: `<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 14.6A8.5 8.5 0 0 1 9.4 3.6a8.5 8.5 0 1 0 11 11Z"/></svg>`
 };
-const THEME_HEAD = `<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>`;
+const THEME_HEAD = `<script>(function(){try{if(localStorage.getItem('isc-sale')==='off')document.documentElement.setAttribute('data-sale','off');var t=localStorage.getItem('isc-theme-v2');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})()</script>`;
 const THEME_BODY = `<script>
 (function(){
   var b=document.getElementById('theme'); if(!b) return;
@@ -257,7 +257,7 @@ const THEME_BODY = `<script>
   b.addEventListener('click', function(){
     var next=current()==='dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
-    try{ localStorage.setItem('isc-theme', next); }catch(e){}
+    try{ localStorage.setItem('isc-theme-v2', next); }catch(e){}
     if(meta) meta.setAttribute('content', next==='dark' ? '#101210' : '#F4F3EF');
     label();
   });
