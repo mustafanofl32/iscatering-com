@@ -593,7 +593,7 @@ ${stage(p, `
 </div>
 `;
   return shell({
-    title: `${t.title} | ISCatering`, desc: c.desc, canonical, body, current: "tools", ogImage: p.src,
+    title: pageTitle(t), desc: t.seoDesc || c.desc, canonical, body, current: "tools", ogImage: p.src,
     script: `<script>(function(){${c.script}\n})();</script>`,
     jsonld: { "@context": "https://schema.org", "@graph": [
       crumbs([["ISCatering", "/"], ["Calculators", "/#tools"], [t.title, toolUrl(t)]]),
@@ -603,13 +603,19 @@ ${stage(p, `
   });
 }
 
+/* search title: the keyword-led seoTitle when there is one, with the brand only if it still fits */
+function pageTitle(x) {
+  const t = x.seoTitle || x.title;
+  return (t + " | ISCatering").length <= 60 ? t + " | ISCatering" : t;
+}
+
 function guidePage(g, prev, next) {
   const p = photo(g.img);
   const canonical = ORIGIN + guideUrl(g);
   /* a lede written for the page can be too short to be a useful search snippet; the first
      section heading tells the reader what else is inside */
-  let desc = g.lede;
-  if (desc.length < 110 && Array.isArray(g.body) && g.body.length) {
+  let desc = g.seoDesc || g.lede;
+  if (!g.seoDesc && desc.length < 110 && Array.isArray(g.body) && g.body.length) {
     const more = g.body.map(s => s[0]).filter(Boolean).slice(0, 3).join(", ");
     if (more) desc = desc.replace(/.$/, "") + ". Covers " + more + ".";
   }
@@ -642,7 +648,7 @@ ${stage(p, `
 </section>
 `;
   return shell({
-    title: `${g.title} | ISCatering`, desc, canonical, body, current: "guides", ogImage: p.src,
+    title: pageTitle(g), desc, canonical, body, current: "guides", ogImage: p.src,
     jsonld: { "@context": "https://schema.org", "@graph": [
       crumbs([["ISCatering", "/"], ["Guides", "/#guides"], [g.title, guideUrl(g)]]),
       { "@type": "Article", headline: g.title, description: desc,

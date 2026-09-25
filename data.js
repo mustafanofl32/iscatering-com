@@ -4,7 +4,7 @@
 
 const guides = [
   {
-    slug: "service-styles",
+    slug: "service-styles", seoTitle: "Buffet vs Plated vs Family Style: Catering Service Styles",
     title: "Service styles compared",
     img: "service-styles",
     lede: "Buffet, plated, family style, stations and passed canapes, and what each one does to your staffing, your timing and your food quantities.",
@@ -30,7 +30,7 @@ const guides = [
     ]
   },
   {
-    slug: "portion-planning",
+    slug: "portion-planning", seoTitle: "How Much Food per Person? Catering Portion Guide", seoDesc: "Catering portions per adult: 170-225 g (6-8 oz) of protein, 115-170 g each of starch and vegetables, 4-6 canapes an hour, and what moves the numbers.",
     title: "Portion planning",
     img: "portions",
     lede: "The per-guest figures caterers work from, what changes them, and where they go wrong.",
@@ -53,7 +53,7 @@ const guides = [
     ]
   },
   {
-    slug: "staffing-guide",
+    slug: "staffing-guide", seoTitle: "How Many Servers per Guest? Event Staffing Ratios", seoDesc: "Staffing ratios caterers use: one server per 8-12 guests plated or 20-25 at a buffet, one bartender per 40-75, plus the setup and breakdown hours.",
     title: "Staffing an event",
     img: "staffing",
     lede: "How many servers, bartenders and kitchen staff an event needs, and the hours nobody counts.",
@@ -76,7 +76,7 @@ const guides = [
     ]
   },
   {
-    slug: "drinks-planning",
+    slug: "drinks-planning", seoTitle: "How Much Alcohol for a Party? Drinks per Guest", seoDesc: "One drink per guest per hour, five glasses to a wine bottle, 0.7-1 kg of ice per guest, and the non-alcoholic side that always runs short.",
     title: "Drinks planning",
     img: "drinks",
     lede: "Quantities for bar and table service, glassware, ice, and the non-alcoholic side that always runs short.",
@@ -99,7 +99,7 @@ const guides = [
     ]
   },
   {
-    slug: "contract-checklist",
+    slug: "contract-checklist", seoTitle: "Catering Contract Checklist: Clauses to Include", seoDesc: "The clauses that decide who pays when something changes: deposit, final guest count, overtime, leftovers, cancellation, and the ones most often left out.",
     title: "Catering contract checklist",
     img: "contract",
     lede: "The clauses that decide who pays when something changes, and the ones most often left out.",
@@ -124,7 +124,7 @@ const guides = [
     ]
   },
   {
-    slug: "event-timeline",
+    slug: "event-timeline", seoTitle: "Catering Planning Timeline: 6 Months to Event Day", seoDesc: "A working backwards catering schedule: quotes at three to six months, tasting and deposit, menu lock, final guest count, and setup on the day.",
     title: "Planning timeline",
     img: "timeline",
     lede: "A working backwards schedule, from booking to the last van leaving.",
@@ -146,7 +146,7 @@ const guides = [
     ]
   },
   {
-    slug: "rentals-checklist",
+    slug: "rentals-checklist", seoTitle: "Event Rentals Checklist: Tables, China and Equipment", seoDesc: "What gets rented for an off-site event: tables and seating, china and glassware with spares, chafing dishes, kitchen kit, power and tents.",
     title: "Rentals and equipment",
     img: "rentals",
     lede: "What gets rented for an off-site event, in the order people forget it.",
@@ -169,7 +169,7 @@ const guides = [
     ]
   },
   {
-    slug: "dietary-requirements",
+    slug: "dietary-requirements", seoTitle: "Dietary Requirements and Allergens at Events", seoDesc: "Collecting dietary requirements early, the difference between a preference, an intolerance and an allergy, and planning a catering menu that copes.",
     title: "Dietary requirements and allergens",
     img: "dietary",
     lede: "Collecting requirements, planning for them, and the difference between a preference and a medical risk.",
@@ -189,7 +189,7 @@ const guides = [
     ]
   },
   {
-    slug: "space-and-seating",
+    slug: "space-and-seating", seoTitle: "How Much Space per Guest? Event Seating Guide", seoDesc: "Space per guest for a standing reception, seated buffet or banquet, how many people fit a 60 or 72 inch round table, and how to lay out a room that flows.",
     title: "Space and seating",
     img: "space",
     lede: "How much room a guest actually needs, and how to lay out a room that flows.",
@@ -211,13 +211,13 @@ const guides = [
 ];
 
 const tools = [
-  { slug: "food-quantity-calculator", title: "Food quantity calculator", img: "quantities",
+  { slug: "food-quantity-calculator", seoTitle: "Food Quantity Calculator: How Much Food per Person", title: "Food quantity calculator", img: "quantities",
     lede: "Estimate total food quantities from guest count, service style and event length." },
-  { slug: "staffing-calculator", title: "Staffing calculator", img: "staffing",
+  { slug: "staffing-calculator", seoTitle: "Catering Staffing Calculator: Servers per Guest", title: "Staffing calculator", img: "staffing",
     lede: "Estimate servers, bartenders and kitchen staff, and the hours to budget for." },
-  { slug: "drinks-calculator", title: "Drinks calculator", img: "drinks",
+  { slug: "drinks-calculator", seoTitle: "Drinks Calculator: How Much Alcohol for a Party", title: "Drinks calculator", img: "drinks",
     lede: "Estimate drinks, bottles, ice and glassware for the length of your event." },
-  { slug: "cost-per-head-calculator", title: "Cost per head calculator", img: "budget",
+  { slug: "cost-per-head-calculator", seoTitle: "Cost per Head Calculator for Catering and Events", title: "Cost per head calculator", img: "budget",
     lede: "Work out the cost per guest from food, labour, rentals and overhead, and see the margin." }
 ];
 
